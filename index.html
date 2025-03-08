@@ -1,12 +1,96 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
+
 <head>
-    <title>Aventure et secrets !</title>
-    <link href="style.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aventure d'Astral - La Quête des Trois Clés</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+
+    </style>
 </head>
 
-<body>
+<body class="bg-gray-900 text-white font-sans">
+    <header class="bg-black text-center py-8">
+        <h1 class="text-4xl font-bold">La Quête des Trois Clés</h1>
+        <p class="mt-2 text-xl">Un voyage rempli de mystères, de choix et de dangers. Choisissez votre destinée.</p>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-8">
+
+        <section class="bg-gray-800 rounded-lg p-6 mb-8">
+            <h2 class="text-2xl font-semibold mb-4">Le Voyage Débute</h2>
+            <p>Tu es sur le point de quitter ta ville natale pour te lancer dans une quête qui pourrait changer le destin du monde. Un vent étrange souffle autour de toi. Les Trois Clés t'attendent. Mais avant de partir, un choix s'offre à toi...</p>
+        </section>
+
+        <section class="bg-gray-700 rounded-lg p-6 mb-8">
+
+
+            <h3 class="text-xl font-semibold mb-4">Choix :</h3>
+            <div class="space-y-4">
+                <button class="bg-blue-500 text-white px-6 py-3 rounded-lg w-full hover:bg-blue-700 transition" onclick="makeChoice(1)">
+                    Prendre la route principale
+                </button>
+                <button class="bg-green-500 text-white px-6 py-3 rounded-lg w-full hover:bg-green-700 transition" onclick="makeChoice(2)">
+                    Explorer un sentier caché
+                </button>
+            </div>
+        </section>
+
+        <section id="result" class="bg-red-800 rounded-lg p-6">
+            <p id="result-text" class="text-lg">Faites un choix pour commencer l'aventure.</p>
+        </section>
+
+        <section id="next-section" class="hidden bg-gray-700 rounded-lg p-6 mt-8">
+            <h3 class="text-xl font-semibold mb-4">Prochain Choix :</h3>
+            <div class="space-y-4" id="next-buttons">
+
+            </div>
+        </section>
+        <footer class="bg-black text-center py-6">
+            <p class="text-sm">© 2025 Aventure Astral | Tous droits réservés</p>
+        </footer>
     
+        <script>
+            function makeChoice(choice) {
+                let resultText = '';
+                let nextButtonsHTML = '';
+                let nextSection = document.getElementById('next-section');
+                let nextButtons = document.getElementById('next-buttons');
+                
+                document.getElementById('result').classList.add('hidden');
+                nextSection.classList.remove('hidden');
     
+                switch (choice) {
+                    case 1:
+                        nextButtonsHTML = `
+                            <p>Tu prends la route principale. Tu rencontres un vieux sage sur ton chemin, qui t’offre des conseils précieux.</p>
+                            <button class="bg-blue-500 text-white px-6 py-3 rounded-lg w-full hover:bg-blue-700 transition" onclick="makeChoice(3)">
+                                Accepter les conseils du sage
+                            </button>
+                            <button class="bg-red-500 text-white px-6 py-3 rounded-lg w-full hover:bg-red-700 transition" onclick="makeChoice(4)">
+                                Ignorer le sage et continuer sans aide
+                            </button>
+                        `;
+                        break;
+                        default:
+                    resultText = "Choix invalide. Recommencez.";
+                    break;
+                }
+
+                document.getElementById('result-text').innerText = resultText;
+                nextButtons.innerHTML = nextButtonsHTML;
+            }
+
+            function restartGame() {
+                location.reload();
+            }
+
+            function endGame() {
+                alert('Félicitations, tu as trouvé les Trois Clés et accédé au Grand Royaume !');
+                restartGame();
+            }
+        </script>
+    </main>
 </body>
