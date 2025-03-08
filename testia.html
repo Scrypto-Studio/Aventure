@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aventure d'Astral - La Quête des Trois Clés</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Personnalisation supplémentaire si nécessaire */
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white font-sans">
+
+    <!-- En-tête -->
+    <header class="bg-black text-center py-8">
+        <h1 class="text-4xl font-bold">La Quête des Trois Clés</h1>
+        <p class="mt-2 text-xl">Un voyage rempli de mystères, de choix et de dangers. Choisissez votre destinée.</p>
+    </header>
+
+    <!-- Section principale du jeu -->
+    <main class="max-w-4xl mx-auto px-4 py-8">
+
+        <!-- Introduction de l'histoire -->
+        <section class="bg-gray-800 rounded-lg p-6 mb-8">
+            <h2 class="text-2xl font-semibold mb-4">Le Voyage Débute</h2>
+            <p>Tu es sur le point de quitter ta ville natale pour te lancer dans une quête qui pourrait changer le destin du monde. Un vent étrange souffle autour de toi. Les Trois Clés t'attendent. Mais avant de partir, un choix s'offre à toi...</p>
+        </section>
+
+        <!-- Choix de l'utilisateur -->
+        <section class="bg-gray-700 rounded-lg p-6 mb-8">
+            <h3 class="text-xl font-semibold mb-4">Choix :</h3>
+            <div class="space-y-4">
+                <button class="bg-blue-500 text-white px-6 py-3 rounded-lg w-full hover:bg-blue-700 transition" onclick="makeChoice(1)">
+                    Prendre la route principale
+                </button>
+                <button class="bg-green-500 text-white px-6 py-3 rounded-lg w-full hover:bg-green-700 transition" onclick="makeChoice(2)">
+                    Explorer un sentier caché
+                </button>
+            </div>
+        </section>
+
+        <!-- Résultat d'un choix (affiché dynamiquement) -->
+        <section id="result" class="bg-gray-800 rounded-lg p-6">
+            <p id="result-text" class="text-lg">Faites un choix pour commencer l'aventure.</p>
+        </section>
+
+        <!-- Suivi de l'aventure -->
+        <section id="next-section" class="hidden bg-gray-700 rounded-lg p-6 mt-8">
+            <h3 class="text-xl font-semibold mb-4">Prochain Choix :</h3>
+            <div class="space-y-4" id="next-buttons">
+                <!-- Les boutons du prochain choix seront générés ici par JavaScript -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-center py-6">
+        <p class="text-sm">© 2025 Aventure Astral | Tous droits réservés</p>
+    </footer>
+
+    <script>
+        // Fonction pour gérer les choix du joueur et les conséquences
+        function makeChoice(choice) {
+            let resultText = '';
+            let nextButtonsHTML = '';
+            let nextSection = document.getElementById('next-section');
+            let nextButtons = document.getElementById('next-buttons');
+            
+            // Cache la section des résultats précédents et montre la nouvelle section
+            document.getElementById('result').classList.add('hidden');
+            nextSection.classList.remove('hidden');
+
+            // Selon le choix effectué, nous définissons le résultat et les options suivantes
+            switch (choice) {
+                case 1:
+                    nextButtonsHTML = `
+                        <p>Tu prends la route principale. Tu rencontres un vieux sage sur ton chemin, qui t’offre des conseils précieux.</p>
+                        <button class="bg-blue-500 text-white px-6 py-3 rounded-lg w-full hover:bg-blue-700 transition" onclick="makeChoice(3)">
+                            Accepter les conseils du sage
+                        </button>
+                        <button class="bg-red-500 text-white px-6 py-3 rounded-lg w-full hover:bg-red-700 transition" onclick="makeChoice(4)">
+                            Ignorer le sage et continuer sans aide
+                        </button>
+                    `;
+                    break;
+                case 2:
+                    resultText = "Tu explores un sentier caché, bordé de ronces. Une créature invisible t’attaque et tu perds des ressources.";
+                    nextButtonsHTML = `
+                        <button class="bg-green-500 text-white px-6 py-3 rounded-lg w-full hover:bg-green-700 transition" onclick="makeChoice(5)">
+                            Continuer à avancer malgré la douleur
+                        </button>
+                        <button class="bg-yellow-500 text-white px-6 py-3 rounded-lg w-full hover:bg-yellow-700 transition" onclick="makeChoice(6)">
+                            Tenter de retourner en arrière
+                        </button>
+                    `;
+                    break;
+                case 3:
+                    resultText = "Le sage te guide vers un temple ancien où tu trouves un indice précieux. Tu es plus près de la première clé.";
+                    nextButtonsHTML = `
+                        <button class="bg-blue-500 text-white px-6 py-3 rounded-lg w-full hover:bg-blue-700 transition" onclick="makeChoice(7)">
+                            Suivre le chemin du temple
+                        </button>
+                    `;
+                    break;
+                case 4:
+                    resultText = "Tu ignores les conseils du sage, mais une embuscade de bandits te fait perdre des ressources. Tu regrettes ton choix.";
+                    nextButtonsHTML = `
+                        <button class="bg-red-500 text-white px-6 py-3 rounded-lg w-full hover:bg-red-700 transition" onclick="makeChoice(8)">
+                            Combattre les bandits
+                        </button>
+                    `;
+                    break;
+                case 5:
+                    resultText = "Tu continues d’avancer malgré ta douleur, mais tu te retrouves dans un piège mortel. Tu n’y survivras pas.";
+                    nextButtonsHTML = `
+                        <button class="bg-gray-500 text-white px-6 py-3 rounded-lg w-full hover:bg-gray-700 transition" onclick="restartGame()">
+                            Recommencer
+                        </button>
+                    `;
+                    break;
+                case 6:
+                    resultText = "Tu fais demi-tour et perds un temps précieux, te retrouvant à la croisée des chemins. Tu dois prendre une décision rapide.";
+                    nextButtonsHTML = `
+                        <button class="bg-blue-500 text-white px-6 py-3 rounded-lg w-full hover:bg-blue-700 transition" onclick="makeChoice(1)">
+                            Prendre la route principale
+                        </button>
+                        <button class="bg-green-500 text-white px-6 py-3 rounded-lg w-full hover:bg-green-700 transition" onclick="makeChoice(2)">
+                            Explorer un autre sentier caché
+                        </button>
+                    `;
+                    break;
+                case 7:
+                    resultText = "Tu trouves la première clé dans un ancien temple. Un pouvoir étrange commence à t’envahir.";
+                    nextButtonsHTML = `
+                        <button class="bg-purple-500 text-white px-6 py-3 rounded-lg w-full hover:bg-purple-700 transition" onclick="endGame()">
+                            Ouvrir la porte magique
+                        </button>
+                    `;
+                    break;
+                case 8:
+                    resultText = "Tu combats courageusement, mais trop tard... Les bandits te tuent. La quête se termine ici.";
+                    nextButtonsHTML = `
+                        <button class="bg-gray-500 text-white px-6 py-3 rounded-lg w-full hover:bg-gray-700 transition" onclick="restartGame()">
+                            Recommencer
+                        </button>
+                    `;
+                    break;
+                default:
+                    resultText = "Choix invalide. Recommencez.";
+                    break;
+            }
+
+            // Mettre à jour le texte de résultat
+            document.getElementById('result-text').innerText = resultText;
+            // Mettre à jour les boutons pour les prochains choix
+            nextButtons.innerHTML = nextButtonsHTML;
+        }
+
+        // Fonction pour redémarrer le jeu
+        function restartGame() {
+            location.reload();
+        }
+
+        // Fonction pour terminer le jeu
+        function endGame() {
+            alert('Félicitations, tu as trouvé les Trois Clés et accédé au Grand Royaume !');
+            restartGame();
+        }
+    </script>
+</body>
+
+</html>
