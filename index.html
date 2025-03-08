@@ -43,6 +43,9 @@
         </section>
 
         <section id="next-section" class="hidden bg-gray-700 rounded-lg p-6 mt-8">
+            <div class="space-y-4" id="next-images">
+
+            </div>
             <h3 class="text-xl font-semibold mb-4">Prochain Choix :</h3>
             <div class="space-y-4" id="next-buttons">
 
@@ -53,6 +56,27 @@
         </footer>
     
         <script>
+            function Image(choiceimage) {
+                let nextImagesHTML = '';
+                let nextSection = document.getElementById('next-section');
+                let nextImages = document.getElementById('next-images');
+                
+                document.getElementById('result').classList.add('hidden');
+                nextSection.classList.remove('hidden');
+    
+                switch (choiceimage) {
+                    case 1:
+                        nextImagesHTML = `
+                            <img class="h-auto max-w-full" src="/freepik__the-style-is-candid-image-photography-with-natural__71411.png" alt="image description">
+                        `;
+                        break;
+                        default:
+                    break;
+                }
+
+                nextButtons.innerHTML = nextButtonsHTML;
+            }
+
             function makeChoice(choice) {
                 let resultText = '';
                 let nextButtonsHTML = '';
