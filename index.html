@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aventure d'Astral - La Quête des Trois Clés</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style></style>
+    <link rel="stylesheet" href="style.css">
   </head>
 
   <body class="bg-gray-900 text-white font-sans">
+    <div class="fondu"></div>
     <header class="bg-black text-center py-8">
       <h1 class="text-4xl font-bold">La Quête des Trois Clés</h1>
       <p class="mt-2 text-xl">
@@ -165,7 +166,7 @@
 
                         <p>👻 <b>"Seuls ceux qui connaissent la vérité des Anciens peuvent entrer. Réponds à mon énigme, ou sois maudit à jamais."</b></p>
 
-                        <button class="bg-blue-500 text-white px-6 py-3 rounded-lg w-full hover:bg-blue-700 transition" onclick="makeChoice(7)">
+                        <button class="bg-blue-500 text-white px-6 py-3 rounded-lg w-full hover:bg-blue-700 transition" onclick="makeChoice(13)">
                             Tenter de résoudre l’énigme
                         </button>
                         <button class="bg-red-500 text-white px-6 py-3 rounded-lg w-full hover:bg-red-700 transition" onclick="makeChoice(9)">
@@ -219,16 +220,19 @@
           case 7:
             nextButtonsHTML = `
                         <img class="h-96 max-w-lg mx-auto transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0" src="/freepik__the-style-is-candid-image-photography-with-natural__71411.png" alt="image description">
-                        <p>Tu trouves la première clé dans un ancien temple. Un pouvoir étrange commence à t’envahir...</p>
-                        <button class="bg-purple-500 text-white px-6 py-3 rounded-lg w-full hover:bg-purple-700 transition" onclick="FirstKey()">
-                            Ouvrir la porte magique
+                        <p>Tu pénètres dans un ancien temple, dont les murs sont gravés de symboles étranges et de runes presque effacées par le temps. La poussière flottant dans l'air ajoute à l'ambiance mystique. Un frisson parcourt ta colonne vertébrale alors que tu explores les ruines, à la recherche de quelque chose de précieux.</p>
+                        <p>Au centre de la salle, sur un piédestal de pierre, tu aperçois une clé d'apparence ancienne, brillante d'une lueur argentée. En l'approchant, une énergie étrange t'envahit. Tes mains frémissent en la saisissant, comme si la clé elle-même t'appelait. Tu sens une connexion mystérieuse s'établir avec elle, comme si un pouvoir oublié était en train de se réveiller.</p>
+                        <p>Tu es maintenant en possession de la première clé, mais l'énigme du temple reste entière. Quel pouvoir cette clé détient-elle ? L'aventure ne fait que commencer.</p>                        <button class="bg-purple-500 text-white px-6 py-3 rounded-lg w-full hover:bg-purple-700 transition" onclick="FirstKey()">
+                            Suite...
                         </button>
                     `;
             break;
           case 8:
             nextButtonsHTML = `
                         <img class="h-96 max-w-lg mx-auto transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0" src="/freepik__the-style-is-candid-image-photography-with-natural__71411.png" alt="image description">
-                        <p>Tu combats courageusement, mais trop tard... Les bandits te tuent. La quête se termine ici.</p>
+                        <p>Après avoir traversé des forêts sombres et des chemins sinueux, tu rencontres enfin un groupe de bandits, cachés dans un campement isolé. Leur leader te regarde d'un œil froid, un sourire sinistre sur les lèvres. Tu n'as pas le choix : un combat s'engage.</p>
+                        <p>Tu tentes de résister, esquivant et frappant avec l'énergie du désespoir, mais les bandits sont trop nombreux et trop bien entraînés. Malgré tous tes efforts, tu te fais submerger. L’un d'eux frappe un coup fatal, et tout devient noir autour de toi.</p>
+                        <p>La quête se termine ici, mais peut-être qu’une autre aventure t'attend, dans un futur proche.</p>
                         <button class="bg-gray-500 text-white px-6 py-3 rounded-lg w-full hover:bg-gray-700 transition" onclick="restartGame()">
                             Recommencer
                         </button>
@@ -237,8 +241,8 @@
           case 9:
             nextButtonsHTML = `
                         <img class="h-96 max-w-lg mx-auto transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0" src="/freepik__the-style-is-candid-image-photography-with-natural__71411.png" alt="image description">
-                        <p>Tu forces l'entrée mais à peine entré dans le temple, le garde cours vers toi.</p>
-                        
+                        <p>Tu t'approches lentement de la porte du temple, une immense entrée en pierre ornée de runes antiques. La lumière se fait plus faible ici, et une sensation de malaise te traverse. Avant que tu ne puisses franchir le seuil, un garde spectral, armé d'une épée d'apparence ancienne, surgit de l'ombre. Ses yeux brillent d'une lueur surnaturelle alors qu'il te fixe avec méfiance.</p>
+                        <p>Il ne dit rien, mais son corps rigide semble prêt à attaquer. Un vent glacial souffle soudainement, et tu entends les échos d'une mélodie ancienne qui se mêle au silence oppressant du temple. Le garde avance d'un pas menaçant, bloquant l'entrée. Une décision rapide s'impose. Doit-on tenter de l'affronter ou chercher une autre solution ?</p>                        
                         <button class="bg-purple-500 text-white px-6 py-3 rounded-lg w-full hover:bg-purple-700 transition" onclick="makeChoice(11)">
                             L'attaquer
                         </button>
@@ -250,7 +254,8 @@
           case 10:
             nextButtonsHTML = `
                         <img class="h-96 max-w-lg mx-auto transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0" src="/freepik__the-style-is-candid-image-photography-with-natural__71411.png" alt="image description">
-                        <p>Tu tentes de fuir, mais trop tard... Les bandits te tuent. La quête se termine ici.</p>
+                        <p>Tu prends une décision audacieuse : tu essaies de fuir. Mais en te retournant pour prendre la fuite, les bandits, aussi rapides que des ombres, bloquent ta route. Un des bandits te tire une flèche à la volée, et en un instant, tu es blessé. Avant même de pouvoir réagir, ils te submergent. Le dernier son que tu entends est celui de leurs rires moqueurs.</p>
+                        <p>La quête s'arrête ici, mais peut-être qu'un jour, tu reviendras pour venger ta chute.</p>
                         <button class="bg-gray-500 text-white px-6 py-3 rounded-lg w-full hover:bg-gray-700 transition" onclick="restartGame()">
                             Recommencer
                         </button>
@@ -259,7 +264,8 @@
           case 11:
             nextButtonsHTML = `
                         <img class="h-96 max-w-lg mx-auto transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0" src="/freepik__the-style-is-candid-image-photography-with-natural__71411.png" alt="image description">
-                        <p>Tu combat courageusement et réussis même à tuer le garde. Malheureusement pour toi, d'autres accourent. Tu ne fais pas le poids, les gardes te tuent. La quête se termine ici.</p>
+                        <p>La bataille est féroce. Tu affrontes le garde spectral avec une détermination farouche, tes coups résonnant dans les couloirs sombres du temple. Tu parviens à le vaincre, et son corps se dissipe en poussière, emporté par un vent invisible. Mais avant que tu puisses souffler, d'autres gardes apparaissent, sortant des ombres comme des spectres. Ils sont trop nombreux, et malgré toute ta bravoure, tu te fais rapidement submerger.</p>
+                        <p>Les gardes te capturent et, dans un dernier souffle, tu réalises que cette bataille était perdue d'avance. La quête se termine ici.</p>
                         <button class="bg-gray-500 text-white px-6 py-3 rounded-lg w-full hover:bg-gray-700 transition" onclick="restartGame()">
                             Recommencer
                         </button>
@@ -269,11 +275,44 @@
             nextButtonsHTML = `
                         <img class="h-96 max-w-lg mx-auto transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0" src="/freepik__the-style-is-candid-image-photography-with-natural__71411.png" alt="image description">
                         <p>👻 <b>"Seuls ceux qui connaissent la vérité des Anciens peuvent entrer. Réponds à mon énigme, ou sois maudit à jamais."</b></p>
-                        <button class="bg-blue-500 text-white px-6 py-3 rounded-lg w-full hover:bg-blue-700 transition" onclick="makeChoice(7)">
+                        <button class="bg-blue-500 text-white px-6 py-3 rounded-lg w-full hover:bg-blue-700 transition" onclick="makeChoice(13)">
                             Tenter de résoudre l’énigme
                         </button>
                         <button class="bg-red-500 text-white px-6 py-3 rounded-lg w-full hover:bg-red-700 transition" onclick="makeChoice(9)">
                             Forcer l’entrée
+                        </button>
+                    `;
+            break;
+          case 13:
+            nextButtonsHTML = `
+                        <img class="h-96 max-w-lg mx-auto transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0" src="/freepik__the-style-is-candid-image-photography-with-natural__71411.png" alt="image description">
+                        <p>Tu te tiens devant une porte massive, incrustée de pierres anciennes et de symboles mystérieux. Le garde spectral, qui t'a défié, te fixe toujours, son regard glacial ne quittant pas tes yeux. Il te fait signe de t'avancer, et avant même que tu ne puisses poser une question, sa voix retentit dans le silence de la pièce :</p>
+                        <p><b>"Seuls les dignes peuvent entrer dans ce sanctuaire. Résous mon énigme, ou tu resteras ici à jamais, perdu dans les ombres."</b></p>
+                        <p>Une grande tension s'installe. L'énigme du garde te parvient enfin, et voici sa question :</p>
+                        <p><i>"Je suis parfois un fléau, parfois une bénédiction. Je peux remplir un vase jusqu’à le faire déborder, ou sécher la terre sans pitié. Je n'ai ni forme, ni visage, mais je contrôle tout. Qui suis-je ?"</i></p>
+                        <p>Le garde croise les bras, attendant une réponse. La salle semble se refermer sur toi, l'air devient lourd, et l'écho de ses paroles se répercute dans tes oreilles. Il n'y a pas de temps à perdre. Chaque seconde qui passe te rapproche du danger.</p>
+                        <p>Quel est la réponse à cette énigme, et que va-t-il advenir de toi si tu échoues ? La clé de ta survie réside dans tes réflexions.</p>
+                        <button class="bg-blue-500 text-white px-6 py-3 rounded-lg w-full hover:bg-blue-700 transition" onclick="makeChoice(14)">
+                            Répondre à l'énigme
+                        </button>
+                        <button class="bg-red-500 text-white px-6 py-3 rounded-lg w-full hover:bg-red-700 transition" onclick="makeChoice(15)">
+                            Ignorer l'énigme et tenter de forcer l'entrée
+                        </button>
+                    `;
+            break;
+          case 14:
+            nextButtonsHTML = `
+                        <img class="h-96 max-w-lg mx-auto transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0" src="/freepik__the-style-is-candid-image-photography-with-natural__71411.png" alt="image description">
+                        <p>Tu te tiens face au garde spectral, tes pensées se bousculant dans ta tête. L'énigme qu'il t'a posée résonne encore dans tes oreilles. Après un instant de réflexion, la réponse te semble évidente. Tu prends une grande inspiration et, d'un ton ferme, tu réponds :</p>
+                        <p><i>"Tu es l'eau." </i></p>
+                        <p>Un silence lourd s’installe. Le garde reste figé un instant, ses yeux brillants scrutant chaque mouvement de ton visage. Puis, lentement, un sourire énigmatique se dessine sur ses lèvres transparentes.</p>
+                        <p><b>"Impressionnant... Tu as répondu correctement. L'eau, la source de toute vie et pourtant capable de tout engloutir. Très bien, tu as prouvé ta sagesse." </b></p>
+                        <p>Avec un geste majestueux, il s'éloigne, s'inclinant légèrement comme pour te faire honneur.</p>
+                        <p><b>"Tu peux entrer. Le passage t’est ouvert. Que ta quête continue." </b></p>
+                        <p>La porte devant toi, d’un noir profond, commence à s'ouvrir lentement. Des bruits sourds résonnent alors qu'elle se déplace, dévoilant un chemin obscur mais prometteur au-delà.</p>
+                        <p>Une lueur éthérée émane du sanctuaire, éclairant ton visage tandis que le vent se lève, soufflant doucement dans la salle maintenant ouverte. Tu es sur le point de franchir un seuil important dans ta quête.</p>
+                        <button class="bg-green-500 text-white px-6 py-3 rounded-lg w-full hover:bg-green-700 transition" onclick="makeChoice(7)">
+                            Avancer et franchir la porte
                         </button>
                     `;
             break;
@@ -297,9 +336,11 @@
       }
 
       function endGame() {
+        
         alert(
           "Félicitations, tu as trouvé les Trois Clés et accédé au Grand Royaume !"
         );
+        
         restartGame();
       }
     </script>
