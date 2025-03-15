@@ -1,120 +1,307 @@
 <!DOCTYPE html>
 <html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aventure d'Astral - La Quête des Trois Clés</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
+    <style></style>
+  </head>
 
-    </style>
-</head>
-
-<body class="bg-gray-900 text-white font-sans">
+  <body class="bg-gray-900 text-white font-sans">
     <header class="bg-black text-center py-8">
-        <h1 class="text-4xl font-bold">La Quête des Trois Clés</h1>
-        <p class="mt-2 text-xl">Un voyage rempli de mystères, de choix et de dangers. Choisissez votre destinée.</p>
+      <h1 class="text-4xl font-bold">La Quête des Trois Clés</h1>
+      <p class="mt-2 text-xl">
+        Un voyage rempli de mystères, de choix et de dangers. Choisissez votre
+        destinée.
+      </p>
     </header>
 
     <main class="max-w-4xl mx-auto px-4 py-8">
+      <section class="bg-gray-800 rounded-lg p-6 ²²²²²²²²²²²²²²²²²²²²²mb-8">
+        <h2 class="text-2xl font-semibold mb-4">Le Voyage Débute</h2>
+        <p>
+          Tu es sur le point de quitter ta ville natale pour te lancer dans une
+          quête qui pourrait changer le destin du monde. Un vent étrange souffle
+          autour de toi. Les Trois Clés t'attendent. Mais avant de partir, un
+          choix s'offre à toi...
+        </p>
+      </section>
 
-        <section class="bg-gray-800 rounded-lg p-6 mb-8">
-            <h2 class="text-2xl font-semibold mb-4">Le Voyage Débute</h2>
-            <p>Tu es sur le point de quitter ta ville natale pour te lancer dans une quête qui pourrait changer le destin du monde. Un vent étrange souffle autour de toi. Les Trois Clés t'attendent. Mais avant de partir, un choix s'offre à toi...</p>
-        </section>
+      <section class="bg-gray-700 rounded-lg p-6 mb-8">
+        <h3 class="text-xl font-semibold mb-4">Choix :</h3>
+        <div class="space-y-4">
+          <img
+            class="h-96 max-w-lg mx-auto transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0"
+            src="/freepik__the-style-is-candid-image-photography-with-natural__71411.png"
+            alt="image description"
+          />
+          <p>
+            🌍
+            <b
+              >Tu te tiens à la sortie de ton village, un sac bien rempli sur le
+              dos et une vieille boussole en main.</b
+            ><br />
+            Derrière toi, les toits des maisons en pierre et en bois s’alignent
+            paisiblement sous le ciel matinal.<br />
+            L’odeur du pain chaud flotte encore dans l’air, un dernier rappel du
+            confort que tu laisses derrière toi.
+          </p>
 
-        <section class="bg-gray-700 rounded-lg p-6 mb-8">
+          <p>Le chemin se divise en deux :</p>
 
+          <p>
+            🌿 <b>La route principale</b> : Un sentier large et bien entretenu,
+            bordé de grands chênes.<br />
+            Quelques caravanes de marchands la parcourent, et le soleil y brille
+            paisiblement.
+          </p>
 
-            <h3 class="text-xl font-semibold mb-4">Choix :</h3>
-            <div class="space-y-4">
-                <button class="bg-blue-500 text-white px-6 py-3 rounded-lg w-full hover:bg-blue-700 transition" onclick="makeChoice(1)">
-                    Prendre la route principale
-                </button>
-                <button class="bg-green-500 text-white px-6 py-3 rounded-lg w-full hover:bg-green-700 transition" onclick="makeChoice(2)">
-                    Explorer un sentier caché
-                </button>
-            </div>
-        </section>
+          <p>
+            🌫️ <b>Le sentier caché</b> : Presque invisible sous les branches
+            basses et les ronces.<br />
+            Une brume surnaturelle y flotte, et un silence inquiétant y règne.
+          </p>
+          <button
+            class="bg-blue-500 text-white px-6 py-3 rounded-lg w-full hover:bg-blue-700 transition"
+            onclick="makeChoice(1)"
+          >
+            Prendre la route principale
+          </button>
+          <button
+            class="bg-green-500 text-white px-6 py-3 rounded-lg w-full hover:bg-green-700 transition"
+            onclick="makeChoice(2)"
+          >
+            Explorer un sentier caché
+          </button>
+        </div>
+      </section>
 
-        <section id="result" class="bg-red-800 rounded-lg p-6">
-            <p id="result-text" class="text-lg">Faites un choix pour commencer l'aventure.</p>
-        </section>
+      <section id="result" class="bg-gray-800 rounded-lg p-6">
+        <p id="result-text" class="text-lg">
+          Faites un choix pour commencer l'aventure.
+        </p>
+      </section>
 
-        <section id="next-section" class="hidden bg-gray-700 rounded-lg p-6 mt-8">
-            <div class="space-y-4" id="next-images">
-
-            </div>
-            <h3 class="text-xl font-semibold mb-4">Prochain Choix :</h3>
-            <div class="space-y-4" id="next-buttons">
-
-            </div>
-        </section>
-        <footer class="bg-black text-center py-6">
-            <p class="text-sm">© 2025 Aventure Astral | Tous droits réservés</p>
-        </footer>
-    
-        <script>
-            function Image(choiceimage) {
-                let nextImagesHTML = '';
-                let nextSection = document.getElementById('next-section');
-                let nextImages = document.getElementById('next-images');
-                
-                document.getElementById('result').classList.add('hidden');
-                nextSection.classList.remove('hidden');
-    
-                switch (choiceimage) {
-                    case 1:
-                        nextImagesHTML = `
-                            <img class="h-auto max-w-full" src="/freepik__the-style-is-candid-image-photography-with-natural__71411.png" alt="image description">
-                        `;
-                        break;
-                        default:
-                    break;
-                }
-
-                nextButtons.innerHTML = nextButtonsHTML;
-            }
-
-            function makeChoice(choice) {
-                let resultText = '';
-                let nextButtonsHTML = '';
-                let nextSection = document.getElementById('next-section');
-                let nextButtons = document.getElementById('next-buttons');
-                
-                document.getElementById('result').classList.add('hidden');
-                nextSection.classList.remove('hidden');
-    
-                switch (choice) {
-                    case 1:
-                        nextButtonsHTML = `
-                            <p>Tu prends la route principale. Tu rencontres un vieux sage sur ton chemin, qui t’offre des conseils précieux.</p>
-                            <button class="bg-blue-500 text-white px-6 py-3 rounded-lg w-full hover:bg-blue-700 transition" onclick="makeChoice(3)">
-                                Accepter les conseils du sage
-                            </button>
-                            <button class="bg-red-500 text-white px-6 py-3 rounded-lg w-full hover:bg-red-700 transition" onclick="makeChoice(4)">
-                                Ignorer le sage et continuer sans aide
-                            </button>
-                        `;
-                        break;
-                        default:
-                    resultText = "Choix invalide. Recommencez.";
-                    break;
-                }
-
-                document.getElementById('result-text').innerText = resultText;
-                nextButtons.innerHTML = nextButtonsHTML;
-            }
-
-            function restartGame() {
-                location.reload();
-            }
-
-            function endGame() {
-                alert('Félicitations, tu as trouvé les Trois Clés et accédé au Grand Royaume !');
-                restartGame();
-            }
-        </script>
+      <section id="next-section" class="hidden bg-gray-700 rounded-lg p-6 mt-8">
+        <h3 class="text-xl font-semibold mb-4">Prochain Choix :</h3>
+        <div class="space-y-4" id="next-buttons"></div>
+      </section>
     </main>
-</body>
+
+    <footer class="bg-black text-center py-6">
+      <p class="text-sm">© 2025 Aventure Astral | Tous droits réservés</p>
+    </footer>
+
+    <script>
+      function makeChoice(choice) {
+        let resultText = "";
+        let nextButtonsHTML = "";
+        let nextSection = document.getElementById("next-section");
+        let nextButtons = document.getElementById("next-buttons");
+
+        document.getElementById("result").classList.add("hidden");
+        nextSection.classList.remove("hidden");
+
+        switch (choice) {
+          case 1:
+            nextButtonsHTML = `
+                        <img class="h-96 max-w-lg mx-auto transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0" src="/freepik__the-style-is-candid-image-photography-with-natural__71411.png" alt="image description">
+                        <p>☀️ <b>Tu avances sur la route principale, baignée de lumière.</b><br>  
+                        Le chant des oiseaux accompagne tes pas, et l’air est empli du parfum des fleurs sauvages.<br>  
+                        Quelques paysans passent avec leurs charrettes, échangeant des salutations amicales.</p>
+
+                        <p>Soudain, tu aperçois une silhouette assise sur un rocher au bord du chemin.<br>  
+                        C’est un vieil homme vêtu d’une longue robe de lin, une barbe blanche couvrant son torse.<br>  
+                        Ses yeux brillent d’une sagesse profonde. Il incline légèrement la tête et te parle.</p>
+
+                        <p>🧙 <b>"Je sens en toi l’âme d’un aventurier… Veux-tu écouter un conseil avant de poursuivre ton chemin ?"</b></p>
+
+                        <button class="bg-blue-500 text-white px-6 py-3 rounded-lg w-full hover:bg-blue-700 transition" onclick="makeChoice(3)">
+                            Accepter les conseils du sage
+                        </button>
+                        <button class="bg-red-500 text-white px-6 py-3 rounded-lg w-full hover:bg-red-700 transition" onclick="makeChoice(4)">
+                            Ignorer le sage et continuer sans aide
+                        </button>
+                    `;
+            break;
+          case 2:
+            nextButtonsHTML = `
+                        <img class="h-96 max-w-lg mx-auto transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0" src="/freepik__the-style-is-candid-image-photography-with-natural__71411.png" alt="image description">
+                        <p>🌫️ <b>Tu t’enfonces dans le sentier caché, l’air devenant plus lourd autour de toi.</b><br>  
+                        Le sol est couvert de racines sinueuses, et les branches tordues des arbres s’entrelacent au-dessus de ta tête.<br>  
+                        Une brume surnaturelle glisse entre les troncs, épaisse et oppressante.</p>
+
+                        <p>Soudain, un frisson parcourt ton dos. Quelque chose… t’observe.</p>
+
+                        <p>Tu entends un bruissement furtif derrière toi, mais lorsque tu te retournes, rien.<br>  
+                        Une ombre furtive traverse ton champ de vision, rapide comme un éclair.<br>  
+                        Un souffle glacé frôle ta nuque. Tu n’es pas seul ici.</p>
+
+                        <p>Puis, sans prévenir, une force invisible te frappe et te déséquilibre.<br>  
+                        Tu t’écroules au sol, sentant une présence tout autour de toi.<br>  
+                        Tes provisions se renversent dans la terre humide.</p>
+
+                        <p>⚠️ <b>Tu perds des ressources !</b></p>
+
+                        <button class="bg-green-500 text-white px-6 py-3 rounded-lg w-full hover:bg-green-700 transition" onclick="makeChoice(5)">
+                            Continuer à avancer malgré la douleur
+                        </button>
+                        <button class="bg-yellow-500 text-white px-6 py-3 rounded-lg w-full hover:bg-yellow-700 transition" onclick="makeChoice(6)">
+                            Tenter de retourner en arrière
+                        </button>
+                    `;
+            break;
+          case 3:
+            nextButtonsHTML = `
+                        <img class="h-96 max-w-lg mx-auto transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0" src="/freepik__the-style-is-candid-image-photography-with-natural__71411.png" alt="image description">
+                        <p>🏛️ <b>Après un long voyage, tu arrives devant d’anciennes ruines perdues dans la végétation.</b><br>  
+                        De gigantesques piliers de pierre brisée s’élèvent, couverts de mousses et de lianes.<br>  
+                        Des symboles anciens sont gravés sur les murs, irradiant une lueur à peine perceptible.</p>
+
+                        <p>Mais le passage est bloqué. Une <b>immense porte de pierre</b>, gravée de runes, se dresse devant toi.<br>  
+                        Devant elle, une silhouette fantomatique apparaît. Un <b>garde spectral</b>, vêtu d’une armure d’un autre temps,<br>  
+                        te fixe de ses yeux lumineux.</p>
+
+                        <p>👻 <b>"Seuls ceux qui connaissent la vérité des Anciens peuvent entrer. Réponds à mon énigme, ou sois maudit à jamais."</b></p>
+
+                        <button class="bg-blue-500 text-white px-6 py-3 rounded-lg w-full hover:bg-blue-700 transition" onclick="makeChoice(7)">
+                            Tenter de résoudre l’énigme
+                        </button>
+                        <button class="bg-red-500 text-white px-6 py-3 rounded-lg w-full hover:bg-red-700 transition" onclick="makeChoice(9)">
+                            Forcer l’entrée
+                        </button>
+                    `;
+            break;
+          case 4:
+            nextButtonsHTML = `
+                        <img class="h-96 max-w-lg mx-auto transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0" src="/freepik__the-style-is-candid-image-photography-with-natural__71411.png" alt="image description">
+                        <p>⚔️ <b>Tu ignores les conseils du sage et continues ton chemin.</b><br>  
+                        Mais à peine as-tu fait quelques pas que des bandits surgissent des fourrés !<br>  
+                        Ils t’encerclent, armes à la main, réclamant ton or et tes provisions.</p>
+
+                        <button class="bg-red-500 text-white px-6 py-3 rounded-lg w-full hover:bg-red-700 transition" onclick="makeChoice(8)">
+                            Combattre les bandits
+                        </button>
+                        <button class="bg-yellow-500 text-white px-6 py-3 rounded-lg w-full hover:bg-yellow-700 transition" onclick="makeChoice(10)">
+                            Tenter de fuir
+                        </button>
+                    `;
+            break;
+          case 5:
+            nextButtonsHTML = `
+                        <img class="h-96 max-w-lg mx-auto transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0" src="/freepik__the-style-is-candid-image-photography-with-natural__71411.png" alt="image description">
+                        <p>💀 <b>Tu continues d’avancer malgré la douleur… mais c’était une erreur.</b><br>  
+                        Le sol s’effondre sous tes pieds, et tu chutes dans un gouffre sans fond.<br>  
+                        Tout devient noir.</p>
+
+                        <p>⚠️ <b>La quête se termine ici.</b></p>
+
+                        <button class="bg-gray-500 text-white px-6 py-3 rounded-lg w-full hover:bg-gray-700 transition" onclick="restartGame()">
+                            Recommencer
+                        </button>
+                    `;
+            break;
+          case 6:
+            nextButtonsHTML = `
+                        <img class="h-96 max-w-lg mx-auto transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0" src="/freepik__the-style-is-candid-image-photography-with-natural__71411.png" alt="image description">
+                        <p>🔄 <b>Tu fais demi-tour et perds un temps précieux.</b><br>  
+                        Lorsque tu reviens à la croisée des chemins, tu dois prendre une nouvelle décision.</p>
+
+                        <button class="bg-blue-500 text-white px-6 py-3 rounded-lg w-full hover:bg-blue-700 transition" onclick="makeChoice(1)">
+                            Prendre la route principale
+                        </button>
+                        <button class="bg-green-500 text-white px-6 py-3 rounded-lg w-full hover:bg-green-700 transition" onclick="makeChoice(2)">
+                            Explorer un autre sentier caché
+                        </button>
+                    `;
+            break;
+          case 7:
+            nextButtonsHTML = `
+                        <img class="h-96 max-w-lg mx-auto transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0" src="/freepik__the-style-is-candid-image-photography-with-natural__71411.png" alt="image description">
+                        <p>Tu trouves la première clé dans un ancien temple. Un pouvoir étrange commence à t’envahir...</p>
+                        <button class="bg-purple-500 text-white px-6 py-3 rounded-lg w-full hover:bg-purple-700 transition" onclick="FirstKey()">
+                            Ouvrir la porte magique
+                        </button>
+                    `;
+            break;
+          case 8:
+            nextButtonsHTML = `
+                        <img class="h-96 max-w-lg mx-auto transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0" src="/freepik__the-style-is-candid-image-photography-with-natural__71411.png" alt="image description">
+                        <p>Tu combats courageusement, mais trop tard... Les bandits te tuent. La quête se termine ici.</p>
+                        <button class="bg-gray-500 text-white px-6 py-3 rounded-lg w-full hover:bg-gray-700 transition" onclick="restartGame()">
+                            Recommencer
+                        </button>
+                    `;
+            break;
+          case 9:
+            nextButtonsHTML = `
+                        <img class="h-96 max-w-lg mx-auto transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0" src="/freepik__the-style-is-candid-image-photography-with-natural__71411.png" alt="image description">
+                        <p>Tu forces l'entrée mais à peine entré dans le temple, le garde cours vers toi.</p>
+                        
+                        <button class="bg-purple-500 text-white px-6 py-3 rounded-lg w-full hover:bg-purple-700 transition" onclick="makeChoice(11)">
+                            L'attaquer
+                        </button>
+                        <button class="bg-red-500 text-white px-6 py-3 rounded-lg w-full hover:bg-red-700 transition" onclick="makeChoice(12)">
+                            Refermer la porte et tenter de résoudre l'énigme.
+                        </button>
+                    `;
+            break;
+          case 10:
+            nextButtonsHTML = `
+                        <img class="h-96 max-w-lg mx-auto transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0" src="/freepik__the-style-is-candid-image-photography-with-natural__71411.png" alt="image description">
+                        <p>Tu tentes de fuir, mais trop tard... Les bandits te tuent. La quête se termine ici.</p>
+                        <button class="bg-gray-500 text-white px-6 py-3 rounded-lg w-full hover:bg-gray-700 transition" onclick="restartGame()">
+                            Recommencer
+                        </button>
+                    `;
+            break;
+          case 11:
+            nextButtonsHTML = `
+                        <img class="h-96 max-w-lg mx-auto transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0" src="/freepik__the-style-is-candid-image-photography-with-natural__71411.png" alt="image description">
+                        <p>Tu combat courageusement et réussis même à tuer le garde. Malheureusement pour toi, d'autres accourent. Tu ne fais pas le poids, les gardes te tuent. La quête se termine ici.</p>
+                        <button class="bg-gray-500 text-white px-6 py-3 rounded-lg w-full hover:bg-gray-700 transition" onclick="restartGame()">
+                            Recommencer
+                        </button>
+                    `;
+            break;
+          case 12:
+            nextButtonsHTML = `
+                        <img class="h-96 max-w-lg mx-auto transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0" src="/freepik__the-style-is-candid-image-photography-with-natural__71411.png" alt="image description">
+                        <p>👻 <b>"Seuls ceux qui connaissent la vérité des Anciens peuvent entrer. Réponds à mon énigme, ou sois maudit à jamais."</b></p>
+                        <button class="bg-blue-500 text-white px-6 py-3 rounded-lg w-full hover:bg-blue-700 transition" onclick="makeChoice(7)">
+                            Tenter de résoudre l’énigme
+                        </button>
+                        <button class="bg-red-500 text-white px-6 py-3 rounded-lg w-full hover:bg-red-700 transition" onclick="makeChoice(9)">
+                            Forcer l’entrée
+                        </button>
+                    `;
+            break;
+          default:
+            resultText = "Choix invalide. Recommencez.";
+            break;
+        }
+
+        document.getElementById("result-text").innerText = resultText;
+        nextButtons.innerHTML = nextButtonsHTML;
+      }
+
+      function restartGame() {
+        location.reload();
+      }
+
+      function FirstKey() {
+        alert("Félicitations, tu as trouvé une première clé !");
+        alert("Suite à venir...");
+        restartGame();
+      }
+
+      function endGame() {
+        alert(
+          "Félicitations, tu as trouvé les Trois Clés et accédé au Grand Royaume !"
+        );
+        restartGame();
+      }
+    </script>
+  </body>
+</html>
